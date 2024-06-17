@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors-Lizard-Spock</title>
+</head>
+<body>
+    <h1>Rock-Paper-Scissors-Lizard-Spock</h1>
+    <div class="scores">
+        <div>Player Score: <span id="player-score">0</span></div>
+        <div>Computer Score: <span id="computer-score">0</span></div>
+    </div>
+    <div class="choices">
+        <div class="choice" onclick="playRound('rock')">
+            <img src="icon-rock.svg" alt="rock">
+        </div>
+        <div class="choice" onclick="playRound('scissors')">
+            <img src="icon-scissors.svg" alt="scissors">
+        </div>
+        <div class="choice" onclick="playRound('paper')">
+            <img src="icon-paper.svg" alt="paper">
+        </div>
+        <div class="choice" onclick="playRound('lizard')">
+            <img src="icon-lizard.svg" alt="lizard">
+        </div>
+        <div class="choice" onclick="playRound('spock')">
+            <img src="icon-spock.svg" alt="spock">
+        </div>
+    </div>
+    <div class="result" id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
