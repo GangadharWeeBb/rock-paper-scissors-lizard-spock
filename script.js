@@ -34,10 +34,10 @@ const updateScores = () => {
 };
 
 const declareWinner = () => {
-    if(playerScore >= WinningScore) {
+    if(playerScore === WinningScore) {
         document.getElementById('result').innerText = "Congo You win!"
     }
-    else if(computerScore >= WinningScore) {
+    else if(computerScore === WinningScore) {
         document.getElementById('result').innerText= "Congo Computer win!"
     }
 };
@@ -45,16 +45,25 @@ const declareWinner = () => {
 const playRound = userChoice => {
     const computerChoice = getRandomComputerChoice();
     const roundResult = determineRoundWinner(userChoice, computerChoice);
-    document.getElementById('result').innerText = `Your choice: ${userChoice}, Computer's choice:${computerChoice}, Result: ${roundResult}`
+    document.getElementById('result').innerText = `Your choice: ${userChoice}, Computer's choice: ${computerChoice}, Result: ${roundResult}`;
+    
     updateScores();
-    declareWinner();  
+    declareWinner();
 
-    //check if either play or computer has won
-    if(playerScore >= WinningScore || computerChoice >= WinningScore) {
-        playerScore = 0;
-        computerScore = 0;
-        updateScores();
-        document.getElementById('result').innerText = "";
-        declareWinner();
+    // Check if either player has won
+    if(playerScore === WinningScore || computerScore === WinningScore) {
+        // Delay the reset slightly to show the final result for a moment
+        setTimeout(() => {
+            // Reset scores for a new game
+            playerScore = 0;
+            computerScore = 0;
+
+            // Update the score display
+            updateScores();
+
+            // Clear the result display
+            document.getElementById('result').innerText = "";
+        }, 1000); 
     }
-}
+};
+
